@@ -29,26 +29,26 @@ public class Main {
                 new Invoice(20, 343.16, Customer.ORACLE, "Training Java")
         );
 
+        //find out all the even numbers exist in teh list using Stream functions
         List<Integer> evenNumbers = numbers.stream()
                 .filter(number -> number % 2 == 0)
                 .collect(Collectors.toList());
 
-
-
+        //find out all the numbers starting with 1 using Stream functions
         List<Integer> startWithOneNumbers = numbers.stream()
                 .filter(number -> number.toString().startsWith("1"))
                 .collect(Collectors.toList());
 
-
+        //find teh total number of elements present in the list using Stream functions
         Integer total = numbers.stream()
                 .reduce(0, Integer::sum);
 
-
+        //sort all the values present in it using Stream functions
         List<Integer> sortedNumbers = numbers.stream()
                 .sorted(Comparator.naturalOrder())
                 .collect(Collectors.toList());
 
-
+        //refactor previous code using the Streams API
         List<Integer> invoiceIds = invoices.stream()
                 .filter(invoice -> invoice.getCustomer() == Customer.ORACLE && invoice.getTitle().contains("Training"))
                 .sorted(Comparator.comparingDouble(Invoice::getAmount))
